@@ -5,17 +5,17 @@ const services = [
   {
     icon: Send,
     title: "Remesas Internacionales",
-    desc: "Envía y recibe dinero a cualquier parte del mundo usando criptomonedas como medio de transferencia. Rápido, económico y sin intermediarios bancarios. Ideal para familias y trabajadores en el exterior.",
+    desc: "Envía y recibe dinero a cualquier parte del mundo usando USDT en redes TRC20 y ERC20. Operamos con monedas fiat: USD, ARS y UYU. Rápido, económico y sin intermediarios bancarios.",
   },
   {
     icon: Users,
     title: "Trading P2P",
-    desc: "Compra y vende criptomonedas directamente con otros usuarios de forma segura. Nuestro sistema P2P garantiza que cada operación esté protegida, con custodia de fondos y verificación de identidad.",
+    desc: "Compra y vende USDT directamente con otros usuarios de forma segura. Aceptamos pagos en USD, ARS y UYU. Operamos sobre redes TRC20 y ERC20 con custodia de fondos y verificación de identidad.",
   },
   {
     icon: Building2,
     title: "Pagos Enterprise",
-    desc: "Soluciones de pago con criptomonedas para empresas. Integra pasarelas de pago cripto en tu negocio, realiza pagos a proveedores internacionales y gestiona tesorería digital con nuestra plataforma B2B.",
+    desc: "Soluciones de pago con USDT para empresas. Integramos transferencias en redes TRC20 y ERC20, con liquidación en USD, ARS o UYU. Gestiona pagos internacionales y tesorería digital con nuestra plataforma B2B.",
   },
 ];
 
