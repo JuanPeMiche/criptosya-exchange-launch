@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Bitcoin } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logo from "@/assets/criptosya-logo.jpeg";
 
 const navLinks = [
   { label: "Inicio", href: "#inicio" },
