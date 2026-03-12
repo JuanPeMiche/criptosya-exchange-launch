@@ -8,9 +8,9 @@ const FooterSection = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
             {/* Brand */}
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <img src={logo} alt="Criptosya" className="w-8 h-8 rounded-lg" />
-                <span className="text-lg font-bold text-foreground">Cripto<span className="text-primary">sya</span></span>
+              <div className="flex items-center gap-3 mb-4">
+                <img src={logo} alt="Criptosya" className="w-9 h-9 rounded-xl shadow-lg" />
+                <span className="text-lg font-extrabold tracking-tight"><span className="text-foreground">Cripto</span><span className="text-primary">sya</span></span>
               </div>
               <p className="text-muted-foreground text-sm">Tu exchange de confianza en Latinoamérica.</p>
             </div>
