@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Bitcoin } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logo from "@/assets/criptosya-logo.jpeg";
 
 const navLinks = [
   { label: "Inicio", href: "#inicio" },
@@ -29,7 +30,7 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between py-4 px-4 lg:px-8">
         {/* Logo */}
         <a href="#inicio" className="flex items-center gap-2">
-          <Bitcoin className="w-8 h-8 text-primary" />
+          <img src={logo} alt="Criptosya" className="w-9 h-9 rounded-lg" />
           <span className="text-xl font-bold text-foreground">
             Cripto<span className="text-primary">sya</span>
           </span>

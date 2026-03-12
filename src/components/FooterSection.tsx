@@ -1,4 +1,4 @@
-import { Bitcoin } from "lucide-react";
+import logo from "@/assets/criptosya-logo.jpeg";
 
 const FooterSection = () => {
   return (
@@ -9,7 +9,7 @@ const FooterSection = () => {
             {/* Brand */}
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <Bitcoin className="w-7 h-7 text-primary" />
+                <img src={logo} alt="Criptosya" className="w-8 h-8 rounded-lg" />
                 <span className="text-lg font-bold text-foreground">Cripto<span className="text-primary">sya</span></span>
               </div>
               <p className="text-muted-foreground text-sm">Tu exchange de confianza en Latinoamérica.</p>
