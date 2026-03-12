@@ -1,4 +1,4 @@
-import { Bitcoin } from "lucide-react";
+import logo from "@/assets/criptosya-logo.jpeg";
 
 const FooterSection = () => {
   return (
