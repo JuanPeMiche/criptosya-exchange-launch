@@ -1,15 +1,10 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
-
-const tickerData = [
-  { symbol: "BTC", price: "$104,250", change: "+2.4%" },
-  { symbol: "ETH", price: "$3,890", change: "+1.8%" },
-  { symbol: "USDT", price: "$1.00", change: "0.0%" },
-  { symbol: "BNB", price: "$715", change: "+3.1%" },
-  { symbol: "SOL", price: "$248", change: "+5.2%" },
-];
+import { useCryptoPrices } from "@/hooks/useCryptoPrices";
 
 const HeroSection = () => {
+  const tickerData = useCryptoPrices();
+
   return (
     <section id="inicio" className="relative min-h-screen flex flex-col justify-center overflow-hidden">
       {/* Grid bg */}
