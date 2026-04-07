@@ -30,21 +30,28 @@ const ContactSection = () => {
     }
 
     if (formData.channel === "whatsapp") {
-      const text = `Hola, soy *${formData.name}*%0AEmail: ${formData.email}${formData.phone ? `%0ATel: ${formData.phone}` : ""}%0AAsunto: ${formData.subject}%0A%0A${formData.message}`;
+      const text = encodeURIComponent(
+        `Hola Criptosya! 👋\n\n` +
+        `*Nombre:* ${formData.name}\n` +
+        `*Teléfono:* ${formData.phone || "No proporcionado"}\n` +
+        `*Servicio:* ${formData.subject}\n\n` +
+        `*Consulta:*\n${formData.message}`
+      );
       window.open(`https://wa.me/59893357188?text=${text}`, "_blank");
-      toast({ title: "¡Redirigido a WhatsApp!", description: "Completa el envío desde la app." });
+      toast({ title: "✅ Se abrió WhatsApp con tu mensaje.", description: "Solo confirmá el envío." });
     } else {
-      const mailSubject = encodeURIComponent(`[${formData.subject}] Consulta de ${formData.name}`);
-      const mailBody = encodeURIComponent(`Nombre: ${formData.name}\nEmail: ${formData.email}${formData.phone ? `\nTeléfono: ${formData.phone}` : ""}\nAsunto: ${formData.subject}\n\n${formData.message}`);
-      const mailtoLink = `mailto:contacto@criptosya.com?subject=${mailSubject}&body=${mailBody}`;
-      const a = document.createElement('a');
-      a.href = mailtoLink;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      toast({ title: "¡Abriendo tu cliente de correo!", description: "Completa el envío desde tu app de email." });
+      const subject = encodeURIComponent(`Consulta desde web - ${formData.subject} - ${formData.name}`);
+      const body = encodeURIComponent(
+        `Nombre: ${formData.name}\n` +
+        `Email: ${formData.email}\n` +
+        `Teléfono: ${formData.phone || "No proporcionado"}\n` +
+        `Servicio de interés: ${formData.subject}\n\n` +
+        `Mensaje:\n${formData.message}\n\n` +
+        `---\nEnviado desde el formulario de contacto de criptosya.com`
+      );
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=contacto@criptosya.com&su=${subject}&body=${body}`;
+      window.open(gmailUrl, "_blank");
+      toast({ title: "✅ Se abrió Gmail con tu mensaje listo para enviar.", description: "Revisá la nueva pestaña." });
     }
     setFormData({ name: "", email: "", phone: "", subject: "remesas", message: "", channel: "whatsapp" });
   };
