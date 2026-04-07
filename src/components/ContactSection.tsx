@@ -7,16 +7,36 @@ const ContactSection = () => {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", subject: "remesas", message: "", channel: "whatsapp" });
   const { toast } = useToast();
 
+  const validatePhone = (phone: string) => {
+    if (!phone) return true; // optional
+    const cleaned = phone.replace(/\s/g, "");
+    return /^(\+\d{1,3}\d{7,12}|0\d{7,12})$/.test(cleaned);
+  };
+
+  const validateEmail = (email: string) => {
+    return /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(email);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!validateEmail(formData.email)) {
+      toast({ title: "Email inválido", description: "Ingresa un email válido (ej: nombre@dominio.com)", variant: "destructive" });
+      return;
+    }
+    if (formData.phone && !validatePhone(formData.phone)) {
+      toast({ title: "Teléfono inválido", description: "Debe comenzar con 0 o + seguido del código de país, y tener al menos 8 dígitos.", variant: "destructive" });
+      return;
+    }
+
     if (formData.channel === "whatsapp") {
-      const text = `Hola, soy *${formData.name}*%0A📧 ${formData.email}${formData.phone ? `%0A📱 ${formData.phone}` : ""}%0A📋 Asunto: ${formData.subject}%0A%0A${formData.message}`;
+      const text = `Hola, soy *${formData.name}*%0AEmail: ${formData.email}${formData.phone ? `%0ATel: ${formData.phone}` : ""}%0AAsunto: ${formData.subject}%0A%0A${formData.message}`;
       window.open(`https://wa.me/59893357188?text=${text}`, "_blank");
       toast({ title: "¡Redirigido a WhatsApp!", description: "Completa el envío desde la app." });
     } else {
       const mailSubject = encodeURIComponent(`[${formData.subject}] Consulta de ${formData.name}`);
       const mailBody = encodeURIComponent(`Nombre: ${formData.name}\nEmail: ${formData.email}${formData.phone ? `\nTeléfono: ${formData.phone}` : ""}\nAsunto: ${formData.subject}\n\n${formData.message}`);
-      window.open(`mailto:contacto@criptosya.com?subject=${mailSubject}&body=${mailBody}`, "_blank");
+      window.location.href = `mailto:contacto@criptosya.com?subject=${mailSubject}&body=${mailBody}`;
       toast({ title: "¡Abriendo tu cliente de correo!", description: "Completa el envío desde tu app de email." });
     }
     setFormData({ name: "", email: "", phone: "", subject: "remesas", message: "", channel: "whatsapp" });
