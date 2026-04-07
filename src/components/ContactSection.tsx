@@ -4,15 +4,22 @@ import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", subject: "remesas", message: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", subject: "remesas", message: "", channel: "whatsapp" });
   const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `Hola, soy *${formData.name}*%0A📧 ${formData.email}${formData.phone ? `%0A📱 ${formData.phone}` : ""}%0A📋 Asunto: ${formData.subject}%0A%0A${formData.message}`;
-    window.open(`https://wa.me/59893357188?text=${text}`, "_blank");
-    toast({ title: "¡Redirigido a WhatsApp!", description: "Completa el envío desde la app." });
-    setFormData({ name: "", email: "", phone: "", subject: "remesas", message: "" });
+    if (formData.channel === "whatsapp") {
+      const text = `Hola, soy *${formData.name}*%0A📧 ${formData.email}${formData.phone ? `%0A📱 ${formData.phone}` : ""}%0A📋 Asunto: ${formData.subject}%0A%0A${formData.message}`;
+      window.open(`https://wa.me/59893357188?text=${text}`, "_blank");
+      toast({ title: "¡Redirigido a WhatsApp!", description: "Completa el envío desde la app." });
+    } else {
+      const mailSubject = encodeURIComponent(`[${formData.subject}] Consulta de ${formData.name}`);
+      const mailBody = encodeURIComponent(`Nombre: ${formData.name}\nEmail: ${formData.email}${formData.phone ? `\nTeléfono: ${formData.phone}` : ""}\nAsunto: ${formData.subject}\n\n${formData.message}`);
+      window.open(`mailto:contacto@criptosya.com?subject=${mailSubject}&body=${mailBody}`, "_blank");
+      toast({ title: "¡Abriendo tu cliente de correo!", description: "Completa el envío desde tu app de email." });
+    }
+    setFormData({ name: "", email: "", phone: "", subject: "remesas", message: "", channel: "whatsapp" });
   };
 
   return (
@@ -29,7 +36,6 @@ const ContactSection = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16">
-          {/* Form */}
           <motion.form
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -68,6 +74,38 @@ const ContactSection = () => {
               value={formData.message} onChange={e => setFormData({ ...formData, message: e.target.value })}
               className="w-full bg-secondary border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
             />
+
+            {/* Channel selector */}
+            <div className="space-y-2">
+              <p className="text-sm font-medium text-foreground">Enviar por:</p>
+              <div className="flex gap-3">
+                <button
+                  type="button"
+                  onClick={() => setFormData({ ...formData, channel: "whatsapp" })}
+                  className={`flex items-center gap-2 px-5 py-2.5 rounded-full border text-sm font-medium transition-all ${
+                    formData.channel === "whatsapp"
+                      ? "border-primary bg-primary/10 text-primary"
+                      : "border-border text-muted-foreground hover:border-primary/50 hover:text-foreground"
+                  }`}
+                >
+                  <Phone className="w-4 h-4" />
+                  WhatsApp
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setFormData({ ...formData, channel: "email" })}
+                  className={`flex items-center gap-2 px-5 py-2.5 rounded-full border text-sm font-medium transition-all ${
+                    formData.channel === "email"
+                      ? "border-primary bg-primary/10 text-primary"
+                      : "border-border text-muted-foreground hover:border-primary/50 hover:text-foreground"
+                  }`}
+                >
+                  <Mail className="w-4 h-4" />
+                  Email
+                </button>
+              </div>
+            </div>
+
             <button
               type="submit"
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-full font-semibold hover:opacity-90 transition-opacity"
@@ -76,7 +114,6 @@ const ContactSection = () => {
             </button>
           </motion.form>
 
-          {/* Info */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
