@@ -1,13 +1,18 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", subject: "remesas", message: "" });
+  const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Mock submit
+    const text = `Hola, soy *${formData.name}*%0A📧 ${formData.email}${formData.phone ? `%0A📱 ${formData.phone}` : ""}%0A📋 Asunto: ${formData.subject}%0A%0A${formData.message}`;
+    window.open(`https://wa.me/59893357188?text=${text}`, "_blank");
+    toast({ title: "¡Redirigido a WhatsApp!", description: "Completa el envío desde la app." });
+    setFormData({ name: "", email: "", phone: "", subject: "remesas", message: "" });
   };
 
   return (
@@ -109,13 +114,20 @@ const ContactSection = () => {
             <div className="pt-4">
               <p className="text-foreground font-semibold mb-4">Síguenos</p>
               <div className="flex gap-3">
-                {["X (Twitter)", "Telegram", "Instagram", "LinkedIn"].map((s) => (
+                {[
+                  { label: "Instagram", href: "https://www.instagram.com/criptosya/" },
+                  { label: "X (Twitter)", href: "#" },
+                  { label: "Telegram", href: "#" },
+                  { label: "LinkedIn", href: "#" },
+                ].map((s) => (
                   <a
-                    key={s}
-                    href="#"
+                    key={s.label}
+                    href={s.href}
+                    target={s.href !== "#" ? "_blank" : undefined}
+                    rel={s.href !== "#" ? "noopener noreferrer" : undefined}
                     className="px-4 py-2 rounded-lg border border-border text-muted-foreground text-sm hover:text-primary hover:border-primary/50 transition-colors"
                   >
-                    {s}
+                    {s.label}
                   </a>
                 ))}
               </div>
