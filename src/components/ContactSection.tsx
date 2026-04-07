@@ -36,7 +36,14 @@ const ContactSection = () => {
     } else {
       const mailSubject = encodeURIComponent(`[${formData.subject}] Consulta de ${formData.name}`);
       const mailBody = encodeURIComponent(`Nombre: ${formData.name}\nEmail: ${formData.email}${formData.phone ? `\nTeléfono: ${formData.phone}` : ""}\nAsunto: ${formData.subject}\n\n${formData.message}`);
-      window.location.href = `mailto:contacto@criptosya.com?subject=${mailSubject}&body=${mailBody}`;
+      const mailtoLink = `mailto:contacto@criptosya.com?subject=${mailSubject}&body=${mailBody}`;
+      const a = document.createElement('a');
+      a.href = mailtoLink;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
       toast({ title: "¡Abriendo tu cliente de correo!", description: "Completa el envío desde tu app de email." });
     }
     setFormData({ name: "", email: "", phone: "", subject: "remesas", message: "", channel: "whatsapp" });
