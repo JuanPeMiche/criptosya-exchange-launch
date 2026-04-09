@@ -32,7 +32,7 @@ const Navbar = () => {
         <a href="#inicio" className="flex items-center gap-3">
           <img src={logo} alt="Criptosya" className="w-10 h-10 rounded-xl shadow-lg" />
           <span className="text-xl font-extrabold tracking-tight">
-            <span className="text-foreground">Cripto</span><span className="text-primary">sya</span>
+            <span className="text-foreground">Criptos</span><span className="text-primary">ya</span>
           </span>
         </a>
 
