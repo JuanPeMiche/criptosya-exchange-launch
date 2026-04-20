@@ -163,15 +163,15 @@ const ContactSection = () => {
                 <p className="text-muted-foreground">contacto@criptosya.com</p>
               </div>
             </div>
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-lg bg-primary/15 flex items-center justify-center flex-shrink-0">
+            <a href="https://wa.me/59893357188" target="_blank" rel="noopener noreferrer" className="flex items-start gap-4 group">
+              <div className="w-12 h-12 rounded-lg bg-primary/15 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/25 transition-colors">
                 <Phone className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <p className="text-foreground font-semibold">WhatsApp</p>
-                <a href="https://wa.me/59893357188" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">+598 93 357 188</a>
+                <p className="text-foreground font-semibold group-hover:text-primary transition-colors">WhatsApp</p>
+                <p className="text-muted-foreground group-hover:text-primary transition-colors">+598 93 357 188</p>
               </div>
-            </div>
+            </a>
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-lg bg-primary/15 flex items-center justify-center flex-shrink-0">
                 <MapPin className="w-5 h-5 text-primary" />
