@@ -9,8 +9,8 @@ const FooterSection = () => {
             {/* Brand */}
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <img src={logo} alt="Criptosya" className="w-9 h-9 rounded-xl shadow-lg" />
-                <span className="text-lg font-extrabold tracking-tight"><span className="text-foreground">Criptos</span><span className="text-primary">ya</span></span>
+                <img src={logo} alt="CriptosYa" className="w-9 h-9 rounded-xl shadow-lg" />
+                <span className="text-lg font-extrabold tracking-tight"><span className="text-foreground">Criptos</span><span className="text-primary">Ya</span></span>
               </div>
               <p className="text-muted-foreground text-sm">Tu exchange de confianza en Latinoamérica.</p>
             </div>
@@ -47,7 +47,7 @@ const FooterSection = () => {
           </div>
 
           <div className="border-t border-border mt-12 pt-8 text-center text-sm text-muted-foreground">
-            © 2025 Criptosya. Todos los derechos reservados.
+            © 2025 CriptosYa. Todos los derechos reservados.
           </div>
         </div>
       </div>

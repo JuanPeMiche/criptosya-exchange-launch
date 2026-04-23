@@ -29,7 +29,7 @@ const AboutSection = () => {
             <div className="space-y-6 text-muted-foreground leading-relaxed">
               <div>
               <h3 className="text-foreground font-semibold text-lg mb-2">Nuestra Misión</h3>
-                <p>En Criptosya, desde Montevideo y Punta del Este, nuestra misión es democratizar el acceso a las criptomonedas en Uruguay y toda Latinoamérica, ofreciendo una plataforma segura, transparente y accesible para que cualquier persona pueda participar en la economía digital.</p>
+                <p>En CriptosYa, desde Montevideo y Punta del Este, nuestra misión es democratizar el acceso a las criptomonedas en Uruguay y toda Latinoamérica, ofreciendo una plataforma segura, transparente y accesible para que cualquier persona pueda participar en la economía digital.</p>
               </div>
               <div>
                 <h3 className="text-foreground font-semibold text-lg mb-2">Nuestra Visión</h3>

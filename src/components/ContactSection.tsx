@@ -31,7 +31,7 @@ const ContactSection = () => {
 
     if (formData.channel === "whatsapp") {
       const text = encodeURIComponent(
-        `Hola Criptosya! 👋\n\n` +
+        `Hola CriptosYa! 👋\n\n` +
         `*Nombre:* ${formData.name}\n` +
         `*Teléfono:* ${formData.phone || "No proporcionado"}\n` +
         `*Servicio:* ${formData.subject}\n\n` +
