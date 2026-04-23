@@ -29,7 +29,7 @@ const AboutSection = () => {
             <div className="space-y-6 text-muted-foreground leading-relaxed">
               <div>
               <h3 className="text-foreground font-semibold text-lg mb-2">Nuestra Misión</h3>
-                <p>En Criptosya, desde Montevideo y Punta del Este, nuestra misión es democratizar el acceso a las criptomonedas en Uruguay y toda Latinoamérica, ofreciendo una plataforma segura, transparente y accesible para que cualquier persona pueda participar en la economía digital.</p>
+                <p>En CriptosYa, desde Montevideo y Punta del Este, nuestra misión es democratizar el acceso a las criptomonedas en Uruguay y toda Latinoamérica, ofreciendo una plataforma segura, transparente y accesible para que cualquier persona pueda participar en la economía digital.</p>
               </div>
               <div>
                 <h3 className="text-foreground font-semibold text-lg mb-2">Nuestra Visión</h3>
@@ -39,13 +39,15 @@ const AboutSection = () => {
           </motion.div>
 
           <motion.div variants={fadeInUp} custom={1} className="relative">
-            <div className="aspect-square rounded-2xl bg-secondary border border-border overflow-hidden flex items-center justify-center">
-              <div className="text-center p-8">
-                <div className="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                  <Shield className="w-12 h-12 text-primary" />
+            <div className="rounded-2xl bg-secondary border border-border overflow-hidden flex items-center justify-center py-12 px-8">
+              <div className="text-center">
+                <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                  <Shield className="w-8 h-8 text-primary" />
                 </div>
-                <p className="text-2xl font-bold text-foreground">Criptosya</p>
-                <p className="text-muted-foreground mt-2">Tu exchange de confianza</p>
+                <p className="text-2xl font-bold">
+                  <span className="text-foreground">Criptos</span><span className="text-primary">Ya</span>
+                </p>
+                <p className="text-muted-foreground text-sm mt-1">Tu exchange de confianza</p>
               </div>
             </div>
             <div className="absolute -z-10 inset-4 rounded-2xl bg-primary/10 blur-xl" />

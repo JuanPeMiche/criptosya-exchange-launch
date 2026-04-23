@@ -30,9 +30,9 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between py-4 px-4 lg:px-8">
         {/* Logo */}
         <a href="#inicio" className="flex items-center gap-3">
-          <img src={logo} alt="Criptosya" className="w-10 h-10 rounded-xl shadow-lg" />
+          <img src={logo} alt="CriptosYa" className="w-10 h-10 rounded-xl shadow-lg" />
           <span className="text-xl font-extrabold tracking-tight">
-            <span className="text-foreground">Criptos</span><span className="text-primary">ya</span>
+            <span className="text-foreground">Criptos</span><span className="text-primary">Ya</span>
           </span>
         </a>
 
